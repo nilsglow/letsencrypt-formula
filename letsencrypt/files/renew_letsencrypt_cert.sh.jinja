@@ -15,4 +15,5 @@ then
         /etc/letsencrypt/live/${COMMON_NAME}/privkey.pem \
         > /etc/letsencrypt/live/${COMMON_NAME}/fullchain-privkey.pem || exit 1
     chmod 600 /etc/letsencrypt/live/${COMMON_NAME}/fullchain-privkey.pem || exit 1
+	systemctl reload apache2.service
 fi
