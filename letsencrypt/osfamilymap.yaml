@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+RedHat:
+  pkgs:
+    - python2-certbot-apache
+  service: certbot-renew.timer
