@@ -68,7 +68,6 @@ jobs:
     # - env: INSTANCE=git-opensuse-leap-151-master-py3
     # - env: INSTANCE=git-amazonlinux-2-master-py3
     # - env: INSTANCE=rpm-amazonlinux-2-master-py3
-    # - env: INSTANCE=git-arch-base-latest-master-py2
     # - env: INSTANCE=git-debian-10-2019-2-py3
     # - env: INSTANCE=deb-debian-10-2019-2-py3
     # - env: INSTANCE=git-debian-9-2019-2-py3
@@ -125,3 +124,15 @@ jobs:
         edge: true
         # Run `semantic-release`
         script: 'npx semantic-release@15.14'
+
+# Notification options: `always`, `never` or `change`
+notifications:
+  webhooks:
+    if: 'repo = saltstack-formulas/letsencrypt-formula'
+    urls:
+      - https://saltstack-formulas.zulipchat.com/api/v1/external/travis?api_key=HsIq3o5QmLxdnVCKF9is0FUIpkpAY79P&stream=CI&topic=saltstack-formulas%2Fletsencrypt-formula&ignore_pull_requests=true
+    on_success: always  # default: always
+    on_failure: always  # default: always
+    on_start: always    # default: never
+    on_cancel: always   # default: always
+    on_error: always    # default: always
